@@ -4,7 +4,7 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 
 me = "Eggsy@rose-hulman.edu"
-you = "knaackcw@rose-hulman.edu"
+you = "bryantlj@rose-hulman.edu"
 
 msg = MIMEMultipart('related')
 msg['Subject'] = 'CSSE432 Homework 2 Logan Bryant'
@@ -35,12 +35,18 @@ Here's the gif <a href="http://tinypic.com?ref=2wpnfnt" target="_blank"><img src
 """
 msgTxt = MIMEText(thehtmlcode, msgAlt.attach(msgTxt))
 
-fp = open('KingsmanGif.gif', 'rb')
+fp = open('../../KingsmanGif.gif', 'rb')
 msgImg = MIMEImage(fp.read())
 fp.close()
 
+fp = open('../../KingsmanImage.jpg', 'rb')
+msgImg2 = MIMEImage(fp.read())
+fp.close()
+
+
 msgImg.add_header('EMEGRENCY thing', '<Itsapicture>')
 msg.attach(msgImg)
+msg.attach(msgImg2)
 
 s = smtplib.SMTP('rosehulman-edu01b.mail.protection.outlook.com', 25)
 s.send_message(msg)
