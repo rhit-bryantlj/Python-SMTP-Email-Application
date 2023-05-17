@@ -3,7 +3,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 
-me = "Eggsy@rose-hulman.edu"
+me = "ljbryant8888@gmail.com"
 you = "bryantlj@rose-hulman.edu"
 
 msg = MIMEMultipart('related')
@@ -48,5 +48,10 @@ msgImg.add_header('EMEGRENCY thing', '<Itsapicture>')
 msg.attach(msgImg)
 msg.attach(msgImg2)
 
-s = smtplib.SMTP('rosehulman-edu01b.mail.protection.outlook.com', 25)
-s.send_message(msg)
+# s = smtplib.SMTP('rosehulman-edu01b.mail.protection.outlook.com', 25)
+# s.send_message(msg)
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.starttls()
+server.login('ljbryant8888@gmail.com', "bflcwxjyffucwdwf")
+server.send_message(msg)
+server.quit()
