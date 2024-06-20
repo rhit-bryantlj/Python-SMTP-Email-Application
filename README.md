@@ -1,4 +1,4 @@
-# PythonEmailApplication
+# Python SMTP Email Application
 
 This is a Python email application built upon SMTP protocol. It features the ability to send emails to multiiple users and 
 add an attachment to the email. To email, you need to go to Google Apps and get a password. Login to the python script using
